@@ -1,0 +1,29 @@
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+public class Connect_ropes_to_minimize_the_cost {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] array = {4,3,2,6};
+		
+		PriorityQueue<Integer> min_heap = new PriorityQueue<Integer>();
+		
+		for(int i = 0; i < array.length; i++)
+		{
+			min_heap.add(array[i]);	
+		}
+		
+		int res = 0;
+		
+		while(min_heap.size()  > 1)
+		{
+				int one = min_heap.poll();
+				int two = min_heap.poll();
+				res = res + one + two;
+				min_heap.add(one + two);
+		}
+		System.out.println(res);
+	}
+
+}
